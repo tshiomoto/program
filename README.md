@@ -1,2 +1,2 @@
 # program
-This file includes program describing method published at some conferences
+ここに機械学習に関する手法を記述したプログラムを掲載していく予定．
