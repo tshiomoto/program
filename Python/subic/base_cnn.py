@@ -9,7 +9,7 @@ import torch.nn.functional as F
 class BaseCNN(nn.Module):
 
     def __init__():
-        super(VGG_128, self).__init__()
+        super(BaseCNN, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, 5, stride=1)
         self.pool1 = nn.MaxPool2d(3, stride=2)
 
