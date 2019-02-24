@@ -6,8 +6,16 @@ from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 
+
+# baseモジュールに使用するCNNの実装
 class BaseCNN(nn.Module):
 
+    '''
+    初期化
+    input
+        onehot: 元になるonehotベクトルの長さ
+        divide_num: サブベクトルの分割数
+    '''
     def __init__(onehot=64, divide_num=2):
         super(BaseCNN, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, 5, stride=1)
@@ -23,6 +31,13 @@ class BaseCNN(nn.Module):
         self.fc5 = nn.Linear(500, onehot * divide_num)
 
 
+    '''
+    順伝播計算
+    input
+        x: 画像データ
+    output
+        output: NNで抽出された特徴量
+    '''
     def forward(self, x):
         h1 = self.pool1(F.relu(self.conv1(x)))
         h2 = self.pool2(F.relu(self.conv2(h1)))
