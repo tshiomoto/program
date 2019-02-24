@@ -8,7 +8,7 @@ import torch.nn.functional as F
 
 class BaseCNN(nn.Module):
 
-    def __init__():
+    def __init__(onehot=64, divide_num=2):
         super(BaseCNN, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, 5, stride=1)
         self.pool1 = nn.MaxPool2d(3, stride=2)
@@ -20,7 +20,7 @@ class BaseCNN(nn.Module):
         self.pool3 = nn.AveragePool2d(3, stride=2)
 
         self.fc4 = nn.Linear(64 * 3 * 3, 500)
-        self.fc5 = nn.Linear(500, 64)
+        self.fc5 = nn.Linear(500, onehot * divide_num)
 
 
     def forward(self, x):
@@ -28,6 +28,6 @@ class BaseCNN(nn.Module):
         h2 = self.pool2(F.relu(self.conv2(h1)))
         h3 = self.pool3(F.relu(self.conv3(h2)))
         h4 = F.relu(self.fc4(h3))
-        output = self.fc5(h4)
+        output = F.relu(self.fc5(h4))
 
         return output
