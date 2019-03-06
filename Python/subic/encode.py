@@ -96,15 +96,28 @@ def bar_entropy(data):
     return F.mean(tilde_entropy(data))
 
 
-class LinearClassification(nn.Module):
+class LinearClassifier(nn.Module):
 
-    def __init__(self):
-        super(LinearClassification, self).__init__()
-        self.fc = nn.Linear(1000, 100)
+    def __init__(self, n_class):
+        super(LinearClassifier_, self).__init__()
+        self.fc = nn.Linear(128, n_class)
 
 
     def __call__(self, x):
-        self.forward(x)
+        return self.forward(x)
 
     def forward(self, x):
         return F.softmax(self.fc(x))
+
+
+def classification(data, n_class):
+    classifier = LinearClassifier(n_class)
+    return classifier(data)
+
+
+def classification_loss(data, n_class, label):
+    norm = (-1. * torch.log(2.)) / torch.log(n_class)
+
+    prob = classification(data, n_class)
+    loss = torch.log(prob[label]) / torch.log(2.)
+    return norm * loss

@@ -16,7 +16,7 @@ class BaseCNN(nn.Module):
         onehot: 元になるonehotベクトルの長さ
         divide_num: サブベクトルの分割数
     '''
-    def __init__(onehot=64, divide_num=2):
+    def __init__(self, onehot=64, divide_num=2):
         super(BaseCNN, self).__init__()
         self.conv1 = nn.Conv2d(3, 32, 5, stride=1)
         self.pool1 = nn.MaxPool2d(3, stride=2)
