@@ -9,7 +9,6 @@ import torch.nn as nn
 from model.base_cnn import BaseCNN
 import model.encode as encode
 
-data_path = 'data/cifar10'
 
 def parse_argument():
     parser = argparse.ArgumentParser(
@@ -46,11 +45,11 @@ def parse_argument():
 def train(onehot, devide_num, iteration):
     train_data = data_read_train(data_path)
     base = BaseCNN(onehot=onehot, divide_num=devide_num)
+    softmax_entropy = encode.LinearClassifier()
 
     for ite_num in range(iteration):
         pass
 
-def data_read_train(path):
 
 if __name__ == '__main__':
     args = parse_argument()
