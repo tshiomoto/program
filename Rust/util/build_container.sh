@@ -1,0 +1,1 @@
+docker run -it --rm -e USER=$USER -e LOCAL_UID=$(id -u $USER) -e LOCAL_GID=$(id -g $USER) -v /Users/shiomototatsunori/Documents/GitHub/program/Rust:/rust/ shiomoto/rust:1.39 bash
