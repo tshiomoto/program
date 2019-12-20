@@ -1,4 +1,13 @@
+# ignore files about python
 Python/.vscode/settings.json
 Python/.profile
 .DS_Store
 Python/arxiv.py
+
+# ignore files about Julia
+
+# ignore files about Rust
+
+# ignore other files
+Java/*
+*/.DS_Store
