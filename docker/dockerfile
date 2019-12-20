@@ -1,0 +1,19 @@
+# mac用fish, vim入りpython環境
+FROM python:3.7
+LABEL maintainer="shiomoto <ryuusyou3174.gmail.com>"
+
+# homebrewのインストール
+RUN mkdir homebrew
+RUN curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+RUN alias 'brew="/homebrew/bin/brew"'
+
+# vimのインストール
+RUN brew install vim
+
+# fishの設定
+RUN brew install fish
+RUN echo /usr/local/bin/fish | sudo tee -a /etc/shells
+RUN chsh -s /usr/local/bin/fish
+
+# 設定の反映
+RUN exec $SHELL -l
