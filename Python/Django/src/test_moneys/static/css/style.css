@@ -1,0 +1,119 @@
+/*見出しのスタイル*/
+h1{
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #2ed336;/*左線*/
+}
+
+
+/*本文のスタイル*/
+body{padding-left: 15px;}
+
+
+/*セレクトボタンのスタイル*/
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+
+/*ラジオボタンの設定*/
+.cp_ipradio {
+	width: 90%;
+	margin: 2em auto;
+	text-align: left;
+}
+.cp_ipradio ul {
+	margin: 0.5rem 0.5rem 2rem 0.5rem;
+	padding: 0.5rem 1rem;
+	list-style: none;
+	border: 1px solid #cccccc;
+}
+.cp_ipradio .list_item {
+	margin: 0 0 0.5rem 0;
+	padding: 0;
+}
+.cp_ipradio label {
+	line-height: 135%;
+	position: relative;
+	margin: 0.5rem;
+	cursor: pointer;
+}
+.cp_ipradio .option-input {
+	position: relative;
+	margin: 0 1rem 0 0;
+	cursor: pointer;
+}
+.cp_ipradio .option-input:before {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0.125rem;
+	width: 0.75rem;
+	height: 0.75rem;
+	content: '';
+	-webkit-transition: -webkit-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+	        transition:         transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+	-webkit-transform: scale(0, 0);
+	        transform: scale(0, 0);
+	border-radius: 50%;
+	background: #da3c41;
+}
+.cp_ipradio .option-input:checked:before {
+	-webkit-transform: scale(1, 1);
+	        transform: scale(1, 1);
+}
+.cp_ipradio .option-input:after {
+	position: absolute;
+	top: -0.25rem;
+	left: -0.125rem;
+	width: 1rem;
+	height: 1rem;
+	content: '';
+	border: 2px solid #f2f2f2;
+	border-radius: 50%;
+	background: #ffffff;
+}

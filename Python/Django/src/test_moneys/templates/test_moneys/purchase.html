@@ -2,23 +2,44 @@
 <html>
 <head>
     <title>商品購入</title>
-    <link rel="stylesheet" href="{% static 'css/test_moneys.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 {% if item_list %}
-    <h2>商品リスト</h2>
+<h1>購入品</h1>
+<div>
     {% for item in item_list %}
         <p>{{item.item_name}}</p>
+        <select class="select-test">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
     {% endfor %}
-{% else %}
-    <p>何もないゾ</p>
+</div>
+    {% else %}
+        <p>何もないゾ</p>
 {% endif %}
 
+<div>
 {% if person_list %}
-    <h2>購入者</h2>
-    {% for person in person_list %}
-        <p>{{preson.person_name}}</p>
-    {% endfor %}
+    <h1>購入者</h1>
+    <div class="cp_ipradio">
+        <ul>
+        {% for person in person_list %}
+            <li class="list_item">
+            <label>
+            <input type="radio" class="option-input"  name="cpipr">
+            {{person.person_name}}
+            </label>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endif %}
 </body>
 </html>
